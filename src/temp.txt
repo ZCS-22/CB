@@ -1,0 +1,952 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+
+import Layout from "./components/Layout";
+import PageScroll from "./components/PageScroll";
+
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Classes from "./Pages/Classes";
+import Event from "./Pages/Event";
+import Costume from "./Pages/CostumeRental";
+import Contact from "./Pages/Contact";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import NotFound from "./Pages/NotFound";
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Classes" element={<Classes />} />
+        <Route path="/Event" element={<Event />} />
+        <Route path="/Costume" element={<Costume />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Privacy-policy" element={<PrivacyPolicy />} />
+
+        <Route path="*" element={<NotFound />} />
+
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+
+
+
+Error boundary example
+export default function App() {
+
+  const test = null;
+
+  return (
+    <div>
+      {test.map(item => item)}
+    </div>
+  );
+}
+
+
+
+
+
+
+sample Home helmet example
+import { Helmet } from "react-helmet-async";
+
+function Home() {
+  return (
+    <>
+      <Helmet>
+        <title>Chennai Beats Dance School</title>
+        <meta
+          name="description"
+          content="Chennai Beats Dance School offering Bollywood, Kuthu, Folk and Freestyle dance classes."
+        />
+      </Helmet>
+
+      <h1>Home Page</h1>
+    </>
+  );
+}
+
+
+
+
+https code
+Add HTTPS in vite.config.js or vite.config.jsx:
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import fs from "node:fs";
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    host: true,
+    https: {
+      key: fs.readFileSync("./certs/localhost-key.pem"),
+      cert: fs.readFileSync("./certs/localhost.pem"),
+    },
+  },
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sample app.jsx lazy loading example
+import React, { lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+
+// 🔥 Lazy load with delay (IMPORTANT to see spinner)
+const Home = lazy(() =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(import("./pages/Home")), 3000);
+  })
+);
+
+const About = lazy(() =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(import("./pages/About")), 3000);
+  })
+);
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+page loading spnning example
+import React, { lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+
+// 🔥 Lazy load with delay (IMPORTANT to see spinner)
+const Home = lazy(() =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(import("./pages/Home")), 3000);
+  })
+);
+
+const About = lazy(() =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(import("./pages/About")), 3000);
+  })
+);
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+  );
+}
+
+export default App;
+
+
+import { useEffect, useMemo, useRef, useState, memo, useCallback } from "react";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+
+/* ---------------------------------------------------
+   COSTUME DATA
+   One costume = one separate folder
+--------------------------------------------------- */
+const costumeItems = [
+  {id: "adult fusion-01",
+    category: "adult fusion",
+    title: "adult fusion style 1",
+    folder: "adult fusion/style1", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-02",
+    category: "adult fusion",
+    title: "adult fusion style 2",
+    folder: "adult fusion/style2", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-03",
+    category: "adult fusion",
+    title: "adult fusion style 3",
+    folder: "adult fusion/style3", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-04",
+    category: "adult fusion",
+    title: "adult fusion style 4",
+    folder: "adult fusion/style4", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-05",
+    category: "adult fusion",
+    title: "adult fusion style 5",
+    folder: "adult fusion/style5", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-06",
+    category: "adult fusion",
+    title: "adult fusion style 6",
+    folder: "adult fusion/style6", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-07",
+    category: "adult fusion",
+    title: "adult fusion style 7",
+    folder: "adult fusion/style7", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult fusion-08",
+    category: "adult fusion",
+    title: "adult fusion style 8",
+    folder: "adult fusion/style8", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+
+  {id: "adult traditional-01",
+    category: "adult traditional",
+    title: "adult traditional style 1",
+    folder: "adult traditional/style1", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-02",
+    category: "adult traditional",
+    title: "adult traditional style 2",
+    folder: "adult traditional/style2", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-03",
+    category: "adult traditional",
+    title: "adult traditional style 3",
+    folder: "adult traditional/style3", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-04",
+    category: "adult traditional",
+    title: "adult traditional style 4",
+    folder: "adult traditional/style4", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-05",
+    category: "adult traditional",
+    title: "adult traditional style 5",
+    folder: "adult traditional/style5", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-06",
+    category: "adult traditional",
+    title: "adult traditional style 6",
+    folder: "adult traditional/style6", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-07",
+    category: "adult traditional",
+    title: "adult traditional style 7",
+    folder: "adult traditional/style7", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-08",
+    category: "adult traditional",
+    title: "adult traditional style 8",
+    folder: "adult traditional/style8", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "adult traditional-09",
+    category: "adult traditional",
+    title: "adult traditional style 9",
+    folder: "adult traditional/style9", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+
+  {id: "kids fusion-01", 
+    category: "kids fusion",
+    title: "kids fusion style 1",
+    folder: "kids fusion/style1", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-02",
+    category: "kids fusion",
+    title: "kids fusion style 2",
+    folder: "kids fusion/style2", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-03",
+    category: "kids fusion",
+    title: "kids fusion style 3",
+    folder: "kids fusion/style3", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-04",
+    category: "kids fusion",
+    title: "kids fusion style 4",
+    folder: "kids fusion/style4", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-05",
+    category: "kids fusion",
+    title: "kids fusion style 5",
+    folder: "kids fusion/style5", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-06",
+    category: "kids fusion",
+    title: "kids fusion style 6",
+    folder: "kids fusion/style6", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-07",
+    category: "kids fusion",
+    title: "kids fusion style 7",
+    folder: "kids fusion/style7", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-08",
+    category: "kids fusion",
+    title: "kids fusion style 8",
+    folder: "kids fusion/style8", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-09",
+    category: "kids fusion",
+    title: "kids fusion style 9",
+    folder: "kids fusion/style9", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-10",
+    category: "kids fusion",
+    title: "kids fusion style 10",
+    folder: "kids fusion/style10", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids fusion-11",
+    category: "kids fusion",
+    title: "kids fusion style 11",
+    folder: "kids fusion/style11", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  
+  {id: "kids traditional-01", 
+    category: "kids traditional",
+    title: "kids traditional style 1",
+    folder: "kids traditional/style1", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids traditional-02",
+    category: "kids traditional",
+    title: "kids traditional style 2",
+    folder: "kids traditional/style2", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "kids traditional-03",
+    category: "kids traditional",
+    title: "kids traditional style 3",
+    folder: "kids traditional/style3", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+
+  {id: "teen fusion-01", 
+    category: "teen fusion",
+    title: "teen fusion style 1",
+    folder: "teen fusion/style1", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen fusion-02",
+    category: "teen fusion",
+    title: "teen fusion style 2",
+    folder: "teen fusion/style2", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen fusion-03",
+    category: "teen fusion",
+    title: "teen fusion style 3",
+    folder: "teen fusion/style3", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen fusion-04",
+    category: "teen fusion",
+    title: "teen fusion style 4",
+    folder: "teen fusion/style4", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen fusion-05",
+    category: "teen fusion",
+    title: "teen fusion style 5",
+    folder: "teen fusion/style5", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen fusion-06",
+    category: "teen fusion",
+    title: "teen fusion style 6",
+    folder: "teen fusion/style6", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen fusion-07",
+    category: "teen fusion",
+    title: "teen fusion style 7",
+    folder: "teen fusion/style7", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  
+  {id: "teen traditional-01", 
+    category: "teen traditional",
+    title: "teen traditional style 1",
+    folder: "teen traditional/style1", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+  {id: "teen traditional-02",
+    category: "teen traditional",
+    title: "teen traditional style 2",
+    folder: "teen traditional/style2", 
+    price: "Sale & Rent",
+    desc: "Traditional Bharatanatyam costume",
+    sizes: { Small: 2, Medium: 3, Large: 2, XL: 1 },},
+];
+
+/* ---------------------------------------------------
+   LAZY IMAGE IMPORTS
+--------------------------------------------------- */
+const imageModules = import.meta.glob(
+  "../assets/CostumeRental/**/*.{webp,jpg,jpeg,png,JPG,JPEG,PNG,WEBP}",
+  { import: "default" }
+);
+
+/* ---------------------------------------------------
+   HELPERS
+--------------------------------------------------- */
+function useInViewOnce(threshold = 0.15) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || visible) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(node);
+        }
+      },
+      {
+        threshold,
+        rootMargin: "120px 0px",
+      }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [visible, threshold]);
+
+  return [ref, visible];
+}
+
+function useSafeEventHandler() {
+  return useCallback((handler, errorMessage = "Something went wrong.") => {
+    return async (event, ...args) => {
+      try {
+        if (typeof handler !== "function") {
+          throw new Error("Event handler is undefined.");
+        }
+
+        await handler(event, ...args);
+      } catch (error) {
+        console.error("Event handler error:", error);
+        toast.error(errorMessage);
+      }
+    };
+  }, []);
+}
+
+function buildGroupedLoaders(modules) {
+  const grouped = {};
+
+  Object.entries(modules).forEach(([path, loader]) => {
+    const parts = path.split("/");
+    const costumeFolder = parts[parts.length - 2];
+    const categoryFolder = parts[parts.length - 3];
+    const folderKey = `${categoryFolder}/${costumeFolder}`;
+
+    if (!grouped[folderKey]) {
+      grouped[folderKey] = [];
+    }
+
+    grouped[folderKey].push({ path, loader });
+  });
+
+  Object.keys(grouped).forEach((folderKey) => {
+    grouped[folderKey].sort((a, b) => a.path.localeCompare(b.path));
+    grouped[folderKey] = grouped[folderKey].map((item) => item.loader);
+  });
+
+  return grouped;
+}
+
+function groupCostumesByCategory(items) {
+  return items.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push(item);
+    return acc;
+  }, {});
+}
+
+/* ---------------------------------------------------
+   MAIN PAGE
+--------------------------------------------------- */
+export default function CostumeRental() {
+  const groupedLoaders = useMemo(() => buildGroupedLoaders(imageModules), []);
+  const costumesByCategory = useMemo(
+    () => groupCostumesByCategory(costumeItems),
+    []
+  );
+
+  return (
+    <div className="costume-page">
+      <section className="costume-hero">
+        <h1>Costume Rental Service</h1>
+        <p>
+          Choose your dance costume and explore available designs for stage
+          performances and cultural events.
+        </p>
+      </section>
+
+      <section className="costume-categories">
+        <h2 className="costume-title">Costume Categories</h2>
+
+        {Object.entries(costumesByCategory).map(([category, costumes]) => (
+          <div key={category} className="costume-category-block">
+            <h3 className="costume-category-title">{category}</h3>
+
+            <div className="costume-grid">
+              {costumes.map((costume) => (
+                <CostumeCard
+                  key={costume.id}
+                  costume={costume}
+                  imageLoaders={groupedLoaders[costume.folder] || []}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section className="costume-cta-section">
+        <h2>Need Costume for Your Performance?</h2>
+        <p>Contact us now and book your dance costume.</p>
+
+        <Link to="/contact" className="costume-cta-btn">
+          Contact Now
+        </Link>
+      </section>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------
+   CARD
+--------------------------------------------------- */
+const CostumeCard = memo(function CostumeCard({ costume, imageLoaders }) {
+  const [cardRef, cardVisible] = useInViewOnce(0.1);
+  const [images, setImages] = useState([]);
+  const [current, setCurrent] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const safeEventHandler = useSafeEventHandler();
+
+  useEffect(() => {
+    if (!cardVisible || isLoaded || imageLoaders.length === 0) return;
+
+    let active = true;
+
+    const loadImages = async () => {
+      try {
+        const loaded = await Promise.all(
+          imageLoaders.map((loader, index) => {
+            if (typeof loader !== "function") {
+              throw new Error(
+                `Invalid image loader at index ${index} for ${costume.title}`
+              );
+            }
+            return loader();
+          })
+        );
+
+        if (active) {
+          setImages(loaded);
+          setIsLoaded(true);
+        }
+      } catch (error) {
+        console.error(`Failed to load images for ${costume.title}:`, error);
+        toast.error(`Unable to load images for ${costume.title}.`);
+      }
+    };
+
+    loadImages();
+
+    return () => {
+      active = false;
+    };
+  }, [cardVisible, imageLoaders, isLoaded, costume.title]);
+
+  useEffect(() => {
+    if (current >= images.length && images.length > 0) {
+      setCurrent(0);
+    }
+  }, [images, current]);
+
+  useEffect(() => {
+    if (!cardVisible || isHovered || images.length <= 1) return;
+
+    const timer = setTimeout(() => {
+      try {
+        if (document.visibilityState === "visible") {
+          setCurrent((prev) => (prev + 1) % images.length);
+        }
+      } catch (error) {
+        console.error("Image slider state update error:", error);
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [cardVisible, isHovered, images.length, current]);
+
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
+
+  const handleSafeMouseEnter = safeEventHandler(
+    handleMouseEnter,
+    "Unable to open costume details."
+  );
+
+  const handleSafeMouseLeave = safeEventHandler(
+    handleMouseLeave,
+    "Unable to close costume details."
+  );
+
+  return (
+    <div
+      ref={cardRef}
+      className="costume-card"
+      onMouseEnter={handleSafeMouseEnter}
+      onMouseLeave={handleSafeMouseLeave}
+    >
+      <div className="costume-image-wrap">
+        {images.length > 0 ? (
+          <img
+            src={images[current]}
+            alt={costume.title}
+            loading="lazy"
+            decoding="async"
+            className="costume-image"
+          />
+        ) : (
+          <div className="costume-image-placeholder">
+            <span>{costume.title}</span>
+          </div>
+        )}
+      </div>
+
+      <div className="costume-card-content">
+        <h3>{costume.title}</h3>
+        <p>{costume.desc}</p>
+        <span>{costume.price}</span>
+      </div>
+
+      <div className={`costume-hover-details ${isHovered ? "show" : ""}`}>
+        <h4>Available Sizes</h4>
+
+        <ul>
+          {Object.entries(costume.sizes).map(([size, count]) => (
+            <li key={size}>
+              {size} : {count} costumes
+            </li>
+          ))}
+        </ul>
+
+        <Link to="/contact" className="costume-book-btn">
+          For booking contact us
+        </Link>
+      </div>
+    </div>
+  );
+});
+
+/*======================================================================================================================================================================================================================================================================================================
+                                                    costume rental  
+======================================================================================================================================================================================================================================================================================================*/
+/*Desktop*/
+.costume-page {@apply bg-white text-gray-800;}
+.costume-hero {@apply bg-black text-white text-center py-10 px-[8%];}
+.costume-hero h1 {@apply font-montserrat text-[3.2rem] font-bold mb-4;}
+.costume-hero p {@apply font-opensans mx-auto text-gray-300 max-w-175 text-[1.2rem] leading-[1.8];}
+.costume-categories {@apply py-25 px-[8%];}
+.costume-title {@apply font-montserrat capitalize font-bold text-center text-[2.6rem] mb-15;}
+.costume-category-block {@apply mb-20;}
+.costume-category-title {@apply font-bold capitalize text-gray-900 text-[2rem] mb-7.5 pl-3.5 border-l-[5px] border-solid border-pink-500;}
+.costume-grid {@apply grid grid-cols-4 gap-7;}
+.costume-card {@apply relative capitalize bg-white rounded-2xl overflow-hidden cursor-pointer;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.1); transition: transform 0.35s ease, box-shadow 0.35s ease;
+  content-visibility: auto; contain-intrinsic-size: 420px;}
+.costume-image-wrap {@apply w-full overflow-hidden h-75 bg-linear-to-br from-[#f4f4f5] to-[#e5e7eb];}
+.costume-image {@apply w-full h-full object-cover;
+  transition: transform 0.45s ease;}
+.costume-image-placeholder {@apply flex items-center justify-center text-center px-4 w-full h-full text-gray-500 font-semibold;}
+.costume-card-content {@apply p-6;}
+.costume-card-content h3 {@apply font-montserrat text-gray-900 font-semibold text-[1.2rem] mb-2;}
+.costume-card-content p {@apply font-opensans text-gray-600 mb-2.5 leading-[1.6];}
+.costume-card-content span {@apply text-pink-500 font-bold;}
+.costume-hover-details {@apply absolute inset-0 bg-black/90 text-white flex flex-col items-center justify-center h-75 text-center p-4.5 opacity-0 pointer-events-none;
+  transition: opacity 0.35s ease;}
+.costume-card:hover .costume-hover-details {@apply opacity-100 pointer-events-none;}
+.costume-hover-details h4 {@apply text-[1.3rem] mb-1;}
+.costume-hover-details li {@apply text-[0.95rem] mb-1.5;}
+.costume-book-btn {@apply inline-block bg-pink-500 text-white py-3 px-6 rounded-[10px] transition-all duration-300;}
+.costume-book-btn:hover {@apply bg-pink-600;}
+.costume-cta-section {@apply bg-black text-white text-center py-5 px-[8%] mt-25;}
+.costume-cta-section h2 {@apply text-[2.4rem] mb-4;}
+.costume-cta-section p {@apply text-gray-300 text-[1.1rem] mb-6;}
+.costume-cta-btn {@apply inline-block bg-pink-500 text-white py-3 px-6.5 rounded-[10px] transition-all duration-300 ;}
+.costume-cta-btn:hover {@apply bg-pink-600;}
+/*Tablet*/
+@media (max-width: 1024px) {
+  .costume-hero {@apply py-22.5 px-[6%];}
+  .costume-hero h1 {@apply text-[2.4rem];}
+  .costume-hero p {@apply text-[1.05rem];}
+  .costume-categories {@apply py-17.5 px-[6%];}
+  .costume-title {@apply text-[2.2rem] mb-10;}
+  .costume-category-title {@apply text-[1.6rem];}
+  .costume-grid {@apply grid grid-cols-2 gap-5;}
+  .costume-image-wrap {@apply h-65;}}
+/*Mobile*/
+@media (max-width: 640px) {
+  .costume-hero {@apply py-17.5 px-[5%];}
+  .costume-hero h1 {@apply text-[2rem];}
+  .costume-hero p {@apply text-[0.95rem] leading-[1.6];}
+  .costume-categories {@apply py-12.5 px-[5%];}
+  .costume-title {@apply text-[1.8rem] mb-7.5;}
+  .costume-category-title {@apply text-[1.4rem] mb-5;}
+  .costume-grid {@apply grid grid-cols-1 gap-4;}
+  .costume-image-wrap {@apply h-55;}
+  .costume-card-content {@apply p-4.5;}
+  .costume-card-content h3 {@apply text-[1rem];}
+  .costume-card-content p {@apply text-[0.9rem];}
+  .costume-hover-details {@apply p-5;}
+  .costume-cta-section {@apply py-15 px-[5%] mt-15;}
+  .costume-cta-section h2 {@apply text-[1.8rem];}
+  .costume-cta-section p {@apply text-[0.95rem];}
+  .costume-cta-btn {@apply w-full text-center;}}
+
+
+
+
+
+import express from "express";
+import nodemailer from "nodemailer";
+import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const app = express();
+
+const SERVER_PORT = Number(process.env.SERVER_PORT) || 5137;
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+
+app.use(
+  cors({
+    origin: CLIENT_URL,
+    methods: ["GET", "POST"],
+  })
+);
+
+app.use(express.json());
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Mail server is running.",
+  });
+});
+
+app.post("/send-mail", async (req, res) => {
+  try {
+    const { firstName, lastName, email, contact, location, message } =
+      req.body || {};
+
+    if (!firstName || !email || !contact || !location || !message) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required.",
+      });
+    }
+
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) {
+      return res.status(500).json({
+        success: false,
+        message: "Email server configuration is missing.",
+      });
+    }
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASSWORD,
+      },
+    });
+
+    const fullName = `${firstName} ${lastName || ""}`.trim();
+
+    const adminMailOptions = {
+      from: process.env.GMAIL_USER,
+      replyTo: email,
+      to: process.env.GMAIL_USER,
+      subject: `Get in Touch Form submission from ${fullName}`,
+      html: `
+        <h3>New Contact Message</h3>
+        <p><b>Name:</b> ${fullName}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Contact:</b> ${contact}</p>
+        <p><b>Location:</b> ${location}</p>
+        <p><b>Comment:</b> ${message}</p>
+      `,
+    };
+
+    const acknowledgementMailOptions = {
+      from: process.env.GMAIL_USER,
+      to: email,
+      replyTo: process.env.GMAIL_USER,
+      subject: "We received your message - Chennai Beats",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #222;">
+          <h2>Hi ${fullName},</h2>
+          <p>Thank you for contacting <b>Chennai Beats</b>.</p>
+          <p>We have received your message and will get back to you soon.</p>
+
+          <h3>Your submission details</h3>
+          <p><b>Name:</b> ${fullName}</p>
+          <p><b>Email:</b> ${email}</p>
+          <p><b>Contact:</b> ${contact}</p>
+          <p><b>Location:</b> ${location}</p>
+          <p><b>Comment:</b> ${message}</p>
+
+          <br />
+          <p>Regards,</p>
+          <p><b>Chennai Beats Team</b></p>
+        </div>
+      `,
+    };
+
+    await Promise.all([
+      transporter.sendMail(adminMailOptions),
+      transporter.sendMail(acknowledgementMailOptions),
+    ]);
+
+    return res.status(200).json({
+      success: true,
+      message: "Email sent successfully.",
+    });
+  } catch (error) {
+    console.error("Mail send error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: error?.message || "Failed to send email.",
+    });
+  }
+});
+
+app.listen(SERVER_PORT, () => {
+  console.log(`Server running on http://localhost:${SERVER_PORT}`);
+});

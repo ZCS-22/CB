@@ -1,0 +1,104 @@
+React + Tailwind css + Node
+React + Tailwind.css + Javascript
+
+npm create vite@latest Chennai-Beats-Website
+cd Chennai-Beats-Website
+npm install
+npm install tailwindcss @tailwindcss/vite
+
+C:\python_program\Chennai-Beats-Website>node -v
+v24.14.0
+C:\python_program\Chennai-Beats-Website>npm -v
+11.9.0
+
+npm install -D tailwindcss postcss autoprefixer
+npm install -D @tailwindcss/vite
+
+npm list tailwindcss            
+chennai-beats@0.0.0 C:\python_program\Chennai-Beats
+├─┬ @tailwindcss/vite@4.2.2
+│ ├─┬ @tailwindcss/node@4.2.2
+│ │ └── tailwindcss@4.2.2 deduped
+│ └── tailwindcss@4.2.2 deduped
+└── tailwindcss@4.2.2
+
+"Playfair Display", serif; /* Comapny&Founder name */
+"Dancing Script", sans-serif; /* Tag line */
+"Montserrat", sans-serif; /* Heading */
+"Raleway", sans-serif; /*Button, Link, Header&Footer*/
+"Open Sans", sans-serif; /* Content */
+
+
+npm install react-router-dom
+npm install react-hot-toast
+npm install bootstrap-icons
+npm install react-helmet-async
+npm install lucide-react
+npm install framer-motion
+npm install express cors dotenv
+npm install express nodemailer cors dotenv
+npm install axios
+npm install googleapis
+
+npm audit fix
+
+Device                  CategoryBootstrap v5 Breakpoints    Tailwind CSS Breakpoints
+Mobile (Portrait)       < 576px (xs)                        Default
+Mobile (Landscape)      ≥ 576px (sm)                        ≥ 640px (sm)
+Tablet                  ≥ 768px (md)                        ≥ 768px (md)
+Laptop / Small Desktop  ≥ 992px (lg)                        ≥ 1024px (lg)
+Large Desktop           ≥ 1200px (xl)                       ≥ 1280px (xl)
+Extra Large Screens     ≥ 1400px (xxl)                      ≥ 1536px (2xl)
+
+Error Type	Handled by ErrorBoundary
+Render errors	
+Lifecycle errors	
+Event handler errors	
+    Undefined Function / Variable
+    Forgetting Arrow Function (Immediate Execution)
+    Accessing Undefined State
+    Async Errors (API Calls)
+    Event Not Passed Correctly
+    State Update Mistakes
+Async errors	
+API errors	
+Tailwind issues
+
+contact -           Only the submit handler is protected
+costume rental -    safe wrapper for real handlers: onMouseEnter and onMouseLeave
+                    guarded async image loading
+                    guarded slider state update
+                    toast + console error logging
+classes -           toast import
+                    useSafeEventHandler()
+                    protected openJotform click handler with try/catch
+footer -            Only the submit event is wrapped
+header -            only real event handler is the scroll listener, so that is the only place where event-handler protection is added.
+home -              toast import
+                    useSafeEventHandler()
+                    safe wrapping for:
+                        IntersectionObserver callback in FounderSection
+                        slider interval callback in useAutoSlide
+                        IntersectionObserver callback in InstructorSection
+about -             general
+notfound -          only event-style protection added
+Privacy Policies -  no event handler to protect.
+app -               no event-handler wrapper
+layout -            no event-handler wrapper
+
+
+🧾 6. Security Checklist ✅
+
+Before deploying:
+
+✔ Use HTTPS
+✔ Protect API keys
+✔ Use HTTP-only cookies
+✔ Validate all inputs
+✔ Sanitize user data
+✔ Fix npm vulnerabilities
+✔ Add CSP headers
+✔ Secure backend APIs
+✔ Avoid dangerouslySetInnerHTML
+✔ Handle errors properly
+
