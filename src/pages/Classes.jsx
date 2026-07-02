@@ -422,24 +422,24 @@ function ClassScheduleSection() {
     },
     {
       location: "Bothell",
-      venueLine1: "Bothell",
-      venueLine2: "2606 194th St SE Bothell, WA 98012.",
+      venueLine1: "Kenmore Movement Studio",
+      venueLine2: "8030 NE Bothell Way a, Kenmore, WA 98028.",
       slots: [
         {
-          time: "Sunday 4pm - 5pm",
-          className: "Tiny Tots Rhythm",
-          age: "Ages 3-5",
+          time: "Saturday 3:30pm - 4:30pm",
+          className: "Junior Groovers",
+          age: "",
         },
         {
-          time: "Sunday 5pm - 6pm",
+          time: "Saturday 4:30pm - 5:30pm",
           className: "Adults",
-          age: "Ages 6-10",
+          age: "",
         },
       ],
     },
     {
       location: "Bellevue",
-      venueLine1: "Eyas Montessori School",
+      venueLine1: "Eyas Global Montessori School",
       venueLine2: "14219 Lake Hills Blvd, Bellevue, WA 98007.",
       slots: [
         {
