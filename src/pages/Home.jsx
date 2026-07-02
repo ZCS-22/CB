@@ -4,7 +4,8 @@ import toast from "react-hot-toast";
 import { Star } from "lucide-react";
 
 import CompanyLogo from "../assets/CB_Logo/YT circle.png";
-
+/* https://form.jotform.com/232330427478153 class reg link*/
+/* https://form.jotform.com/261044330658453 get in touch */
 /* ---------------------------------------------------
    SAFE EVENT HANDLER
 --------------------------------------------------- */
@@ -15,6 +16,7 @@ function useSafeEventHandler() {
         if (typeof handler !== "function") {
           throw new Error("Event handler is undefined.");
         }
+
         await handler(...args);
       } catch (error) {
         console.error("Event handler error:", error);
@@ -24,18 +26,18 @@ function useSafeEventHandler() {
   }, []);
 }
 
-/* ---------------------------------------------------
-   HERO SECTION — redesigned
---------------------------------------------------- */
+/*video section */
 function ScrollingVideos() {
   const firstVideo = useMemo(() => {
     const modules = import.meta.glob(
       "../assets/Home/video/*.{mp4,webm,ogg,mov,MP4,WEBM,OGG,MOV}",
       { eager: true, import: "default" }
     );
+
     const videoEntries = Object.entries(modules).sort(([a], [b]) =>
       a.localeCompare(b)
     );
+
     return videoEntries.length ? videoEntries[0][1] : null;
   }, []);
 
@@ -57,79 +59,44 @@ function ScrollingVideos() {
           </div>
         ) : (
           <div className="home-video-fallback">
-            No videos found in src/assets/Home/video
+            No videos found in src/assets/Home/Scroll Videos
           </div>
         )}
 
         <div className="home-video-overlay"></div>
 
-        {/* Floating social proof badge */}
-        <div className="home-hero-badge home-swipe-up home-swipe-delay-1">
-          <span className="home-hero-badge-num">500+</span>
-          <span className="home-hero-badge-lbl">Students</span>
+        <div className="home-brand-name">
+          <h1 className="home-swipe-up home-swipe-delay-1">Chennai Beats</h1>
         </div>
 
-        {/* Content anchored to bottom-left */}
-        <div className="home-hero-content">
-          <div className="home-hero-accent-line home-swipe-up home-swipe-delay-1"></div>
-          <p className="home-hero-eyebrow home-swipe-up home-swipe-delay-1">
-            Seattle's Premier Dance Academy
+        <div className="home-brand-tagline">
+          <p className="home-swipe-up home-swipe-delay-2">
+            Feel the Beat. Live the Dance.
           </p>
-          <h1 className="home-hero-title home-swipe-up home-swipe-delay-2">
-            Building <span className="home-hero-title-accent">Confidence</span>
-            <br />One Dance at a Time
-          </h1>
-          <p className="home-hero-styles home-swipe-up home-swipe-delay-3">
-            A place where every dancer belongs, grows, and performs with pride
-          </p>
-          <div className="home-hero-ctas home-swipe-up home-swipe-delay-4">
-            <a
-              href="https://form.jotform.com/232330427478153"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="home-hero-btn-primary"
-            >
-              Enroll Now
-            </a>
-            <Link to="/Classes" className="home-hero-btn-secondary">
-              View Classes
-            </Link>
-          </div>
         </div>
 
-        <p className="home-hero-scroll-hint">Scroll to explore ↓</p>
+        <div className="home-brand-quotes">
+          <h2 className="home-swipe-up home-swipe-delay-3">
+            A Place to Learn, express, and become the perfomer you want to be.
+          </h2>
+        </div>
+
+        <div className="home-brand-enroll">
+          <a
+            href="https://form.jotform.com/232330427478153"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="home-swipe-up home-swipe-delay-4"
+          >
+            Enroll Now
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------------------------------------------------
-   STATS BAR — new section
---------------------------------------------------- */
-function StatsBar() {
-  const stats = [
-    { num: "500+", label: "Students Taught" },
-    { num: "10+",  label: "Years of Dance" },
-    { num: "6",    label: "Dance Styles" },
-    { num: "100+", label: "Performances" },
-    { num: "4.9★", label: "Google Rating" },
-  ];
-
-  return (
-    <section className="home-stats-bar" aria-label="Key statistics">
-      {stats.map((s) => (
-        <div key={s.label} className="home-stat-item">
-          <span className="home-stat-num">{s.num}</span>
-          <span className="home-stat-lbl">{s.label}</span>
-        </div>
-      ))}
-    </section>
-  );
-}
-
-/* ---------------------------------------------------
-   FOUNDER SECTION — dark theme
---------------------------------------------------- */
+/*founder section */
 function FounderSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -138,8 +105,12 @@ function FounderSection() {
   const founderImage = useMemo(() => {
     const images = import.meta.glob(
       "../assets/Home/Founder photo/*.{png,jpg,jpeg,webp,avif,svg,JPG,JPEG,PNG,WEBP,AVIF,SVG}",
-      { eager: true, import: "default" }
+      {
+        eager: true,
+        import: "default",
+      }
     );
+
     const imageList = Object.values(images);
     return imageList.length ? imageList[0] : "";
   }, []);
@@ -159,17 +130,46 @@ function FounderSection() {
     );
 
     const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.4,
+      threshold: 0.6,
     });
 
     observer.observe(currentSection);
+
     return () => observer.disconnect();
   }, [safeEventHandler]);
 
   return (
     <section ref={sectionRef} className="home-founder-section">
+      <img
+        src={CompanyLogo}
+        alt="Company Logo"
+        className="home-founder-bg-logo"
+      />
+
       <div className="home-founder-wrapper">
-        {/* Photo block */}
+        <div
+          className={`home-founder-content ${
+            isVisible
+              ? "home-founder-content-show"
+              : "hhome-founder-content-hidden"
+          }`}
+        >
+          <h2 className="home-founder-title">Our Story</h2>
+
+          <p className="home-founder-text">
+            Founded in 2011 by Valli Arunagiri, Chennai Beats was created to
+            inspire and empower dancers through passion, discipline, and
+            creativity. Our academy nurtures talent, builds confidence, and
+            provides opportunities for students to perform and compete on
+            prestigious stages, shaping them into confident and versatile
+            performers.
+          </p>
+
+          <Link to="/about" className="home-founder-button">
+            Know More
+          </Link>
+        </div>
+
         <div
           className={`home-founder-photo-block ${
             isVisible ? "home-founder-photo-show" : "home-founder-photo-hidden"
@@ -178,53 +178,27 @@ function FounderSection() {
           {founderImage ? (
             <img
               src={founderImage}
-              alt="Valli Arunagiri — Founder of Chennai Beats"
+              alt="Valli Arunagiri"
               className="home-founder-photo"
             />
           ) : (
             <div className="home-founder-photo-placeholder">Founder Photo</div>
           )}
+
           <div
             className={`home-founder-name ${
               isVisible ? "home-founder-name-show" : "home-founder-name-hidden"
             }`}
           >
-            <span className="home-founder-name-text">Valli Arunagiri</span>
-            <span className="home-founder-name-role">Founder &amp; Lead Instructor</span>
+            Valli Arunagiri
           </div>
-        </div>
-
-        {/* Content */}
-        <div
-          className={`home-founder-content ${
-            isVisible ? "home-founder-content-show" : "home-founder-content-hidden"
-          }`}
-        >
-          <p className="home-founder-eyebrow">Our Story</p>
-          <h2 className="home-founder-title">
-            Passion turned into{" "}
-            <span className="home-founder-title-accent">purpose</span>
-          </h2>
-          <p className="home-founder-text">
-            Founded in 2011 by Valli Arunagiri, Chennai Beats was created to
-            inspire and empower dancers through passion, discipline, and
-            creativity. Our academy nurtures talent, builds confidence, and
-            provides opportunities for students to perform and compete on
-            prestigious stages — shaping them into confident and versatile
-            performers.
-          </p>
-          <Link to="/About" className="home-founder-button">
-            Learn More About Us
-          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------------------------------------------------
-   SERVICES SECTION — unchanged logic, refreshed styling
---------------------------------------------------- */
+/*service section */
 const sortMedia = (modules) =>
   Object.entries(modules)
     .sort(([a], [b]) => a.localeCompare(b))
@@ -245,6 +219,7 @@ function useAutoSlide(images, delay = 2000) {
     );
 
     const interval = setInterval(handleSlide, delay);
+
     return () => clearInterval(interval);
   }, [images, delay, safeEventHandler]);
 
@@ -254,6 +229,7 @@ function useAutoSlide(images, delay = 2000) {
 function usePreloadImages(images) {
   useEffect(() => {
     if (!images || images.length === 0) return;
+
     images.forEach((src) => {
       try {
         const img = new Image();
@@ -307,6 +283,7 @@ function ServiceCard({
         alt={title}
         fallbackText={fallbackText}
       />
+
       <div
         className={`home-service-card-content ${accentClass} ${
           align === "right" ? "align-right" : "align-left"
@@ -316,16 +293,19 @@ function ServiceCard({
           <span>{topLine}</span>
           <span>{bottomLine}</span>
         </div>
+
         <h3>{title}</h3>
         <p>{description}</p>
+
         <a
           href={enrollLink}
-          target="_blank"
+          target="https://form.jotform.com/232330427478153"
           rel="noopener noreferrer"
           className="home-service-enroll-btn"
         >
           Enroll Now
         </a>
+
         <div className="home-service-card-arrow" aria-hidden="true" />
       </div>
     </article>
@@ -396,7 +376,7 @@ function ServicesSection() {
       topLine: "TEAM ENERGY",
       bottomLine: "LIVE SHOWS",
       description:
-        "Transform your workplace with high-energy dance experiences that refresh your team, reduce stress, and bring a positive shift in mindset. We help your employees relax, reconnect, and return with renewed energy for better productivity and growth.",
+        "Our team brings with itself years of experience to bring a new energetic atmosphere to your workplace.",
       images: corporateImages,
       accentClass: "home-service-accent-red",
       align: "left",
@@ -410,7 +390,7 @@ function ServicesSection() {
       topLine: "COUPLE • FAMILY",
       bottomLine: "SPECIAL MOMENTS",
       description:
-        "We turn your wedding moments into unforgettable memories. From beginners to non-dancers, we help your entire family—including parents and cousins—come together on the dance floor and create joyful, fun-filled performances you'll cherish forever.",
+        "We train you to give a stunning wedding performance by giving you a wedding choreography that is unique !",
       images: weddingImages,
       accentClass: "home-service-accent-pink",
       align: "right",
@@ -424,7 +404,7 @@ function ServicesSection() {
       topLine: "BOLLYWOOD • FOLK",
       bottomLine: "LEARN & PERFORM",
       description:
-        "Feel the Beat. Move with Us. We bring the energy, you bring the steps—and together, the whole group dances as one!",
+        "Chennai Beats is one of the most distinguished Dance Classes specialized in Kuthu, Folk & Bollywood Dance.",
       images: workshopImages,
       accentClass: "home-service-accent-orange",
       align: "left",
@@ -438,7 +418,7 @@ function ServicesSection() {
       topLine: "STAGE READY",
       bottomLine: "STYLE & COLORS",
       description:
-        "Step Into the Spotlight! Discover our exclusive costume rentals. Reach out now to check availability and reserve your favorite look!",
+        "Connect with us for more information availability, and rental inquiries.",
       images: costumeImages,
       accentClass: "home-service-accent-purple",
       align: "right",
@@ -452,7 +432,7 @@ function ServicesSection() {
       topLine: "PRECISION • POWER",
       bottomLine: "TRENDING MOVES",
       description:
-        "Love K-pop? Learn iconic dance routines, improve your technique, and perform with confidence, precision, and style.",
+        "Learn sharp movements, synchronized routines, performance expressions, and trending K-pop choreography in a fun and stylish format.",
       images: kpopImages,
       accentClass: "home-service-accent-cyan",
       align: "left",
@@ -473,6 +453,7 @@ function ServicesSection() {
           celebrations, workshops, rentals, and trending performance styles.
         </p>
       </div>
+
       <div className="home-services-grid">
         {services.map((service) => (
           <ServiceCard key={service.title} {...service} />
@@ -482,9 +463,7 @@ function ServicesSection() {
   );
 }
 
-/* ---------------------------------------------------
-   INSTRUCTOR SECTION
---------------------------------------------------- */
+/*Instructor section */
 function InstructorSection() {
   function useInView(threshold = 0.3) {
     const ref = useRef(null);
@@ -506,6 +485,7 @@ function InstructorSection() {
       });
 
       if (ref.current) observer.observe(ref.current);
+
       return () => observer.disconnect();
     }, [threshold, safeEventHandler]);
 
@@ -520,10 +500,15 @@ function InstructorSection() {
 
   const instructors = Object.entries(images).map(([path, module]) => {
     const fileName = path.split("/").pop().split(".")[0];
+
     const name = fileName
       .replace(/[-_]/g, " ")
       .replace(/\b\w/g, (c) => c.toUpperCase());
-    return { name, src: module.default };
+
+    return {
+      name,
+      src: module.default,
+    };
   });
 
   return (
@@ -535,19 +520,18 @@ function InstructorSection() {
       >
         Our Instructors
       </h2>
+
       <p
         className={`home-instructor-text home-instructor-reveal ${
           isVisible ? "show" : ""
         }`}
       >
-        Our instructors are passionate mentors dedicated to helping every
-        student grow with creativity, and discipline. Beyond teaching
-        choreography, our instructors focus on building strong fundamentals,
-        rhythm, expression, stage presence, and cultural appreciation. Every
-        class is designed to inspire a love for dance while helping students
-        develop technique, confidence, teamwork, and performance skills that
-        extend beyond the studio.
+        Our dance school goes beyond just teaching routines—it helps students
+        understand and embrace the fundamental rhythm of dance, enhancing their
+        overall dance skills. Our teaching isn’t just about the technical
+        aspects but about a holistic dance journey.
       </p>
+
       <div className="home-instructor-grid">
         {instructors.map((ins, index) => (
           <div
@@ -558,6 +542,7 @@ function InstructorSection() {
             style={{ transitionDelay: `${index * 120}ms` }}
           >
             <img src={ins.src} alt={ins.name} />
+
             <h3
               className={`instructor-name home-instructor-reveal-name ${
                 isVisible ? "show-name" : ""
@@ -573,39 +558,8 @@ function InstructorSection() {
   );
 }
 
-/* ---------------------------------------------------
-   CTA SECTION — new mid-page call to action
---------------------------------------------------- */
-function CtaSection() {
-  return (
-    <section className="home-cta-section">
-      <p className="home-cta-eyebrow">Start your journey today</p>
-      <h2 className="home-cta-title">Ready to feel the rhythm?</h2>
-      <p className="home-cta-sub">
-        Join hundreds of students who found their passion at Chennai Beats.
-        <br className="home-cta-br" />
-        First class is always on us.
-      </p>
-      <div className="home-cta-btns">
-        <a
-          href="https://form.jotform.com/232330427478153"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="home-cta-btn-primary"
-        >
-          Register for a Free Class
-        </a>
-        <Link to="/Contact" className="home-cta-btn-secondary">
-          Talk to Us First
-        </Link>
-      </div>
-    </section>
-  );
-}
 
-/* ---------------------------------------------------
-   REVIEW HIGHLIGHT
---------------------------------------------------- */
+
 function ReviewHighlight() {
   const [index, setIndex] = useState(0);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -617,6 +571,7 @@ function ReviewHighlight() {
     "Best dance community ever ✨",
   ];
 
+  // testimonial slider
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % reviews.length);
@@ -624,78 +579,153 @@ function ReviewHighlight() {
     return () => clearInterval(interval);
   }, []);
 
+  // mouse glow
   useEffect(() => {
     const handleMove = (e) => {
       setMouse({ x: e.clientX, y: e.clientY });
     };
+
     window.addEventListener("mousemove", handleMove);
     return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
+  // 3D tilt effect
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
     const rotateX = ((y / rect.height) - 0.5) * -20;
     const rotateY = ((x / rect.width) - 0.5) * 20;
-    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+
+    cardRef.current.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale(1.03)
+    `;
   };
 
   const resetTilt = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    cardRef.current.style.transform = `
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      scale(1)
+    `;
   };
 
   return (
-    <section className="home-review-section">
-      {/* Mouse glow */}
-      <div
-        className="home-review-glow"
-        style={{ transform: `translate(${mouse.x - 200}px, ${mouse.y - 200}px)` }}
-      />
-      <div className="home-review-bg-glow-left" />
-      <div className="home-review-bg-glow-right" />
+    <section className="relative overflow-hidden w-full h-80 py-28 flex justify-center items-center bg-gradient-to-br from-gray-100 via-white to-gray-100">
 
+      {/* Mouse Glow */}
+      <div
+        className="pointer-events-none fixed w-[400px] h-[400px] 
+        bg-[radial-gradient(circle,_rgba(236,72,153,0.18)_0%,_transparent_70%)] 
+        blur-[100px] z-0 transition-transform duration-200"
+        style={{
+          transform: `translate(${mouse.x - 200}px, ${mouse.y - 200}px)`
+        }}
+      />
+
+      {/* Background Glow */}
+      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] 
+        bg-[radial-gradient(circle,_rgba(236,72,153,0.25)_0%,_transparent_70%)] 
+        blur-[120px] opacity-70 animate-drift">
+      </div>
+
+      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] 
+        bg-[radial-gradient(circle,_rgba(253,224,71,0.25)_0%,_transparent_70%)] 
+        blur-[120px] opacity-70 animate-driftSlow">
+      </div>
+
+      {/* 🧊 3D Glass Card */}
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={resetTilt}
-        className="home-review-card"
+        className="backdrop-blur-xl bg-white/60 border border-white/30 shadow-2xl rounded-3xl px-14 py-20 text-center max-w-xl relative z-10 transition-transform duration-200"
       >
-        <div className="home-review-stars">
+
+        {/* Stars */}
+        <div className="flex justify-center gap-1 mb-5">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="home-review-star" />
+            <Star
+              key={i}
+              className="w-5 h-5 text-yellow-400 fill-yellow-400"
+            />
           ))}
         </div>
-        <h2 className="home-review-rating">4.9</h2>
-        <p className="home-review-label">Google Rated</p>
-        <p className="home-review-body">
-          Our students and dancers love the vibe, energy, and modern
-          choreography. Join a community where every step feels alive.
+
+        {/* Rating */}
+        <h2 className="text-6xl font-extrabold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">
+          4.9
+        </h2>
+
+        <p className="mt-3 text-xs uppercase tracking-[0.3em] text-gray-500">
+          Google Rated
         </p>
-        <div className="home-review-testimonial">
-          <p key={index} className="home-review-quote">
-            &ldquo;{reviews[index]}&rdquo;
+
+        <p className="mt-6 text-base text-gray-700 leading-relaxed">
+          Our students and dancers love the vibe, energy, and modern choreography.
+          Join a community where every step feels alive.
+        </p>
+
+        {/* Testimonial */}
+        <div className="mt-8 h-6 overflow-hidden">
+          <p key={index} className="text-sm text-gray-500 italic animate-slideUp">
+            "{reviews[index]}"
           </p>
         </div>
+
       </div>
+
+      {/* Animations */}
+      <style jsx>{`
+        .animate-drift {
+          animation: drift 12s ease-in-out infinite alternate;
+        }
+
+        .animate-driftSlow {
+          animation: driftSlow 18s ease-in-out infinite alternate;
+        }
+
+        .animate-slideUp {
+          animation: slideUp 0.5s ease;
+        }
+
+        @keyframes drift {
+          0% { transform: translate(0px, 0px); }
+          100% { transform: translate(40px, 40px); }
+        }
+
+        @keyframes driftSlow {
+          0% { transform: translate(0px, 0px); }
+          100% { transform: translate(-40px, -30px); }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
 
-/* ---------------------------------------------------
-   PAGE EXPORT
---------------------------------------------------- */
 export default function Home() {
   return (
     <>
       <ScrollingVideos />
-      <StatsBar />
       <FounderSection />
       <ServicesSection />
       <InstructorSection />
-      <CtaSection />
       <ReviewHighlight />
     </>
   );

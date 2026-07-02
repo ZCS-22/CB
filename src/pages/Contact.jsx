@@ -329,17 +329,17 @@ function LocationSection() {
     },
     {
       name: "Bellevue",
-      building: "Eyas Global Montessori School",
+      building: "Eyas Montessori School",
       address: "14219 Lake Hills Blvd, Bellevue, WA 98007.",
       map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10761.912096635908!2d-122.15011000000001!3d47.597394!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906c3c7c28b7d7%3A0x650f7ac0fe83a5e1!2sEyas%20Global%20Montessori%20School!5e0!3m2!1sen!2sin!4v1773573948115!5m2!1sen!2sin",
       link: "https://www.google.com/maps/search/?api=1&query=14219+Lake+Hills+Blvd,+Bellevue,+WA+98007",
     },
     {
       name: "Bothell",
-      building: "Kenmore Movement Studio",
-      address: "8030 NE Bothell Way a, Kenmore, WA 98028.",
-      map: "https://www.google.com/maps?q=8030+NE+Bothell+Way+a,+Kenmore,+WA+98028&output=embed",
-      link: "https://www.google.com/maps/search/?api=1&query=8030+NE+Bothell+Way+a,+Kenmore,+WA+98028",
+      building: "Bothell",
+      address: "2606 194th St SE, Bothell, WA 98012.",
+      map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10715.745187496383!2d-122.19781300000001!3d47.821452!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54900f5ab7ee5177%3A0xda99049c21346366!2s2606%20194th%20St%20SE%2C%20Bothell%2C%20WA%2098012%2C%20USA!5e0!3m2!1sen!2sin!4v1773574079572!5m2!1sen!2sin",
+      link: "https://www.google.com/maps/search/?api=1&query=2606+194th+St+SE,+Bothell,+WA+98012",
     },
   ];
 
