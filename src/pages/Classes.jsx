@@ -395,7 +395,7 @@ function ClassScheduleSection() {
     },
     {
       location: "Bellevue",
-      venueLine1: "Eyas Montessori School",
+      venueLine1: "Eyas Global Montessori School",
       venueLine2: "14219 Lake Hills Blvd, Bellevue, WA 98007.",
       slots: [
         {
