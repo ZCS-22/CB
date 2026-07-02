@@ -489,7 +489,7 @@ function ClassScheduleSection() {
         >
           <h2 className="classes-schedule-title">Grab Your Slot !</h2>
           <p className="classes-schedule-subtitle">
-            Fee is $90 per month includes 4 sessions
+            Fee is $100 per month includes 4 sessions
           </p>
         </div>
 
