@@ -377,61 +377,17 @@ function ClassScheduleSection() {
 
   const schedules = [
     {
-      location: "Redmond",
-      venueLine1: "Redmond",
-      venueLine2: "23031 NE 61st St Redmond, WA 98053.",
-      slots: [
-        {
-          time: "Thursday 6:30pm - 7:30pm",
-          className: "Youth Fusion",
-          age: "Ages 6-11",
-        },
-        {
-          time: "Thursday 7:30pm - 8:30pm",
-          className: "Adults",
-          age: "",
-        },
-      ],
-    },
-    {
-      location: "Renton",
-      venueLine1: "Rocking Horse Dance Barn",
-      venueLine2: "11820 150th Ave SE, Renton, WA 98059.",
-      slots: [
-        {
-          time: "Tuesday 6pm - 7pm",
-          className: "Tiny Tots Rhythm",
-          age: "Ages 3-5",
-        },
-        {
-          time: "Tuesday 6pm - 7pm",
-          className: "Junior Groovers",
-          age: "Ages 6-10",
-        },
-        {
-          time: "Tuesday 7pm - 8pm",
-          className: "Youth Fusion",
-          age: "Ages 11-16",
-        },
-        {
-          time: "Tuesday 7pm - 8pm",
-          className: "Adults",
-          age: "",
-        },
-      ],
-    },
-    {
       location: "Bothell",
-      venueLine1: "Bothell",
-      venueLine2: "2606 194th St SE Bothell, WA 98012.",
+      venueLine1: "Kenmore Movement Studio",
+      venueLine2: "8030 NE Bothell Way a, Kenmore, WA 98028",
       slots: [
         {
-          time: "Sunday 4pm - 5pm",
-          className: "Tiny Tots Rhythm",
+          time: "Saturday 3:30pm - 4:30pm",
+          className: "Junior Groovers",
           age: "Ages 3-5",
         },
         {
-          time: "Sunday 5pm - 6pm",
+          time: "Saturday 4:30pm - 5:30pm",
           className: "Adults",
           age: "Ages 6-10",
         },
@@ -444,7 +400,7 @@ function ClassScheduleSection() {
       slots: [
         {
           time: "Wednesday 6pm - 7pm",
-          className: "Tiny Tots Rhythm",
+          className: "Tiny Torts",
           age: "Ages 3-5",
         },
         {
