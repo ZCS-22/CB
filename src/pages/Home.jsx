@@ -71,13 +71,13 @@ function ScrollingVideos() {
 
         <div className="home-brand-tagline">
           <p className="home-swipe-up home-swipe-delay-2">
-            Feel the Beat. Live the Dance.
+            Building Confidence, One Dance at a Time.
           </p>
         </div>
 
         <div className="home-brand-quotes">
           <h2 className="home-swipe-up home-swipe-delay-3">
-            A Place to Learn, express, and become the perfomer you want to be.
+            A place where every dancer belongs, grows, and performs with pride.
           </h2>
         </div>
 
@@ -376,7 +376,7 @@ function ServicesSection() {
       topLine: "TEAM ENERGY",
       bottomLine: "LIVE SHOWS",
       description:
-        "Our team brings with itself years of experience to bring a new energetic atmosphere to your workplace.",
+        "Transform your workplace with high-energy dance experiences that refresh your team, reduce stress, and bring a positive shift in mindset. We help your employees relax, reconnect, and return with renewed energy for better productivity and growth.",
       images: corporateImages,
       accentClass: "home-service-accent-red",
       align: "left",
@@ -390,7 +390,7 @@ function ServicesSection() {
       topLine: "COUPLE • FAMILY",
       bottomLine: "SPECIAL MOMENTS",
       description:
-        "We train you to give a stunning wedding performance by giving you a wedding choreography that is unique !",
+        "We turn your wedding moments into unforgettable memories. From beginners to non-dancers, we help your entire family—including parents and cousins—come together on the dance floor and create joyful, fun-filled performances you’ll cherish forever.",
       images: weddingImages,
       accentClass: "home-service-accent-pink",
       align: "right",
@@ -404,7 +404,7 @@ function ServicesSection() {
       topLine: "BOLLYWOOD • FOLK",
       bottomLine: "LEARN & PERFORM",
       description:
-        "Chennai Beats is one of the most distinguished Dance Classes specialized in Kuthu, Folk & Bollywood Dance.",
+        "Feel the Beat. Move with Us. We bring the energy, you bring the steps—and together, the whole group dances as one!",
       images: workshopImages,
       accentClass: "home-service-accent-orange",
       align: "left",
@@ -418,7 +418,7 @@ function ServicesSection() {
       topLine: "STAGE READY",
       bottomLine: "STYLE & COLORS",
       description:
-        "Connect with us for more information availability, and rental inquiries.",
+        "Step Into the Spotlight! Discover our exclusive costume rentals. Reach out now to check availability and reserve your favorite look!",
       images: costumeImages,
       accentClass: "home-service-accent-purple",
       align: "right",
@@ -432,7 +432,7 @@ function ServicesSection() {
       topLine: "PRECISION • POWER",
       bottomLine: "TRENDING MOVES",
       description:
-        "Learn sharp movements, synchronized routines, performance expressions, and trending K-pop choreography in a fun and stylish format.",
+        "Love K-pop? Learn iconic dance routines, improve your technique, and perform with confidence, precision, and style.",
       images: kpopImages,
       accentClass: "home-service-accent-cyan",
       align: "left",
@@ -526,10 +526,10 @@ function InstructorSection() {
           isVisible ? "show" : ""
         }`}
       >
-        Our dance school goes beyond just teaching routines—it helps students
-        understand and embrace the fundamental rhythm of dance, enhancing their
-        overall dance skills. Our teaching isn’t just about the technical
-        aspects but about a holistic dance journey.
+        Our instructors are passionate mentors dedicated to helping every student grow with creativity, and discipline. 
+        Beyond teaching choreography, our instructors focus on building strong fundamentals, rhythm, expression, stage presence, 
+        and cultural appreciation. Every class is designed to inspire a love for dance while helping students develop technique, 
+        confidence, teamwork, and performance skills that extend beyond the studio.
       </p>
 
       <div className="home-instructor-grid">
