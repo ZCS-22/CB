@@ -403,7 +403,7 @@ body {@apply text-black;}
 .classes-text {@apply flex flex-col w-[45%];}
 .classes-text h2,
 .classes-online-content h2 {@apply leading-[1.2] mb-5 text-[#111] text-shadow-[0_4px_12px_rgba(70,68,68,0.3)];}
-.classes-text h2 em {@apply font-dancing text-[40px] italic;}
+.classes-text h2 em {@apply font-dancing color-black text-[40px] italic;}
 .classes-text h2 strong {@apply font-montserrat capitalize text-[60px] block font-bold;}
 .classes-text small {@apply font-opensans text-[20px] mt-2 block text-base font-medium tracking-[1px] text-neutral-500;}
 .classes-text p,
