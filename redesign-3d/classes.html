@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dance Classes | Chennai Beats Dance Academy</title>
+<meta name="description" content="Bollywood, South Indian Folk, Tamil Nadu Kuthu, Freestyle, and K-Pop dance classes in Bellevue and Bothell / Kenmore for kids, teens, and adults." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@600&family=Montserrat:wght@600;700;800&family=Raleway:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="effects.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Chennai Beats home">
+      <span class="brand-name">Chennai Beats</span>
+      <span class="tagline">Feel the Rhythm. Move with Passion.</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="classes.html" class="active">Classes</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="costume-rental.html">Costume Rental</a></li>
+        <li><a href="index.html#locations">Schedule</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary btn-sm nav-cta">Register Now</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu(this)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="costume-rental.html">Costume Rental</a></li>
+      <li><a href="index.html#locations">Schedule</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div style="padding: 0 20px 20px;">
+      <a href="index.html#contact" class="btn btn-primary">Register Now</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero accent-corner" style="padding-bottom:48px;">
+  <canvas id="hero3d" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Classes</span>
+      <h1>Dance Classes for Every Age &amp; Style</h1>
+      <p class="lead" style="margin-top:14px;">From Bollywood beats to Tamil Nadu Kuthu — weekly classes in Bellevue and Bothell / Kenmore for kids, teens, and adults.</p>
+      <div class="hero-ctas">
+        <a href="index.html#contact" class="btn btn-primary">Register Now</a>
+        <a href="index.html#locations" class="btn btn-secondary">View Class Schedule</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="card-grid cols-3-at-lg">
+
+      <div class="card">
+        <div class="card-icon">&#127925;</div>
+        <h3>Bollywood Dance</h3>
+        <p>Expressive, high-energy choreography set to the biggest Bollywood hits. Perfect for beginners and experienced dancers alike.</p>
+        <div class="meta">
+          <span class="gold">Ages 5+</span>
+          <span>Bellevue</span>
+          <span>Bothell / Kenmore</span>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:16px;">Register Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#127794;</div>
+        <h3>South Indian Folk Dance</h3>
+        <p>Traditional folk styles rooted in South Indian culture — rhythm, storytelling, and celebration in every step.</p>
+        <div class="meta">
+          <span class="gold">Ages 5+</span>
+          <span>Bellevue</span>
+          <span>Bothell / Kenmore</span>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:16px;">Register Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#129345;</div>
+        <h3>Tamil Nadu Kuthu Dance</h3>
+        <p>Raw, rhythmic, and joyfully loud — the unmistakable street-dance energy of Tamil Nadu, taught step by step.</p>
+        <div class="meta">
+          <span class="gold">Teens &amp; Adults</span>
+          <span>Bellevue</span>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:16px;">Register Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#10024;</div>
+        <h3>Freestyle</h3>
+        <p>Open-format choreography across genres. Build musicality, stage presence, and your own personal style.</p>
+        <div class="meta">
+          <span class="gold">Teens &amp; Adults</span>
+          <span>Bothell / Kenmore</span>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:16px;">Register Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">&#127911;</div>
+        <h3>K-Pop</h3>
+        <p>Sharp, polished routines from top K-Pop tracks with clear, step-by-step coaching for young dancers.</p>
+        <div class="meta">
+          <span class="gold">Kids &amp; Teens</span>
+          <span>Bellevue</span>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary btn-sm" style="margin-top:16px;">Register Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow">Not sure which class?</span>
+    <h2>Come Try a Class With Us</h2>
+    <p style="max-width:520px; margin:12px auto 0;">Contact us and we'll help you pick the right class for your age, experience, and location.</p>
+    <div class="hero-ctas">
+      <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+      <a href="index.html#locations" class="btn btn-secondary">View Class Schedule</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="brand-name">Chennai Beats</span>
+        <p style="color:#B9B0A6; margin-top:10px; max-width:280px;">Indian &amp; South Indian dance classes, events, and costume rentals in the Seattle area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="costume-rental.html">Costume Rental</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#locations">Locations</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="index.html#contact">Register Now</a></li>
+          <li><a href="costume-rental.html">Book Costume Rental</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Chennai Beats Dance Academy · Bellevue &amp; Bothell / Kenmore, WA</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(btn) {
+  var menu = document.getElementById('mobileMenu');
+  var open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

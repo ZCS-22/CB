@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Costume Rental | Chennai Beats Dance Academy</title>
+<meta name="description" content="Rent Indian and South Indian dance costumes for kids, teens, and adults — performances, school events, cultural programs, weddings, and stage shows." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@600&family=Montserrat:wght@600;700;800&family=Raleway:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Chennai Beats home">
+      <span class="brand-name">Chennai Beats</span>
+      <span class="tagline">Feel the Rhythm. Move with Passion.</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="costume-rental.html" class="active">Costume Rental</a></li>
+        <li><a href="index.html#locations">Schedule</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#book" class="btn btn-primary btn-sm nav-cta">Book Costume Rental</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu(this)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="costume-rental.html">Costume Rental</a></li>
+      <li><a href="index.html#locations">Schedule</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div style="padding: 0 20px 20px;">
+      <a href="#book" class="btn btn-primary">Book Costume Rental</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero accent-corner" style="padding-bottom:48px;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Costume Rental</span>
+      <h1>Costume Rental for Every Performance</h1>
+      <p class="lead" style="margin-top:14px;">Beautiful, stage-ready Indian and South Indian dance costumes for kids, teens, and adults — for performances, school events, cultural programs, weddings, and stage shows.</p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn btn-primary">Book Costume Rental</a>
+        <a href="#gallery" class="btn btn-secondary">Browse Costumes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Categories</span>
+      <h2>Find the Right Costume</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="card-grid cols-4-at-lg">
+      <div class="card"><div class="card-icon">&#129490;</div><h3>Kids Costumes</h3><p>Comfortable, colorful costumes sized for young performers.</p></div>
+      <div class="card"><div class="card-icon">&#128131;</div><h3>Teen Costumes</h3><p>Stage-ready styles for school and community performances.</p></div>
+      <div class="card"><div class="card-icon">&#128378;</div><h3>Adult Costumes</h3><p>Elegant costumes for adult dancers and group performances.</p></div>
+      <div class="card"><div class="card-icon">&#127916;</div><h3>Bollywood Costumes</h3><p>Vibrant lehengas, kurtas, and fusion sets for Bollywood numbers.</p></div>
+      <div class="card"><div class="card-icon">&#127794;</div><h3>South Indian / Folk</h3><p>Traditional folk attire celebrating South Indian heritage.</p></div>
+      <div class="card"><div class="card-icon">&#127908;</div><h3>Stage Performance</h3><p>Bold, camera-friendly costumes designed for the big stage.</p></div>
+      <div class="card"><div class="card-icon">&#128141;</div><h3>Wedding / Cultural</h3><p>Coordinated sets for sangeets, weddings, and cultural events.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY (with empty/fallback states) ================= -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Gallery</span>
+      <h2>Costume Gallery</h2>
+      <div class="divider"></div>
+      <p>Photos below are placeholders — each tile shows the no-image fallback state until real costume photos are added.</p>
+    </div>
+    <div class="card-grid cols-3-at-lg">
+      <div class="img-fallback"><span class="ph-icon">&#128087;</span><span class="ph-label">Bollywood Lehenga Set</span><span class="ph-note">Photo coming soon</span></div>
+      <div class="img-fallback"><span class="ph-icon">&#128087;</span><span class="ph-label">Folk Dance Costume — Kids</span><span class="ph-note">Photo coming soon</span></div>
+      <div class="img-fallback"><span class="ph-icon">&#128087;</span><span class="ph-label">Kuthu Performance Set</span><span class="ph-note">Photo coming soon</span></div>
+      <div class="img-fallback"><span class="ph-icon">&#128087;</span><span class="ph-label">Wedding Sangeet Costume</span><span class="ph-note">Photo coming soon</span></div>
+      <div class="img-fallback"><span class="ph-icon">&#128087;</span><span class="ph-label">Teen Stage Costume</span><span class="ph-note">Photo coming soon</span></div>
+      <div class="img-fallback"><span class="ph-icon">&#128087;</span><span class="ph-label">Adult Group Set</span><span class="ph-note">Photo coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RENTAL PROCESS ================= -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">How It Works</span>
+      <h2>Simple Rental Process</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-num">1</span><div><h3>Browse</h3><p>Explore costume options in the gallery above.</p></div></div>
+      <div class="step"><span class="step-num">2</span><div><h3>Contact Us</h3><p>Reach out to Chennai Beats with your event details.</p></div></div>
+      <div class="step"><span class="step-num">3</span><div><h3>Confirm</h3><p>We confirm size and availability for your dates.</p></div></div>
+      <div class="step"><span class="step-num">4</span><div><h3>Pick Up</h3><p>Coordinate pickup and enjoy your performance!</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta" id="book">
+  <div class="container">
+    <div class="costume-band" style="text-align:center;">
+      <h2>Need costumes for your next performance?</h2>
+      <p style="margin: 12px auto 0;">Tell us your event date, sizes, and style — we'll take care of the rest.</p>
+      <a href="index.html#contact" class="btn btn-light">Book Costume Rental</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="brand-name">Chennai Beats</span>
+        <p style="color:#A9A9A9; margin-top:10px; max-width:280px;">Indian &amp; South Indian dance classes, events, and costume rentals in the Seattle area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="costume-rental.html">Costume Rental</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#locations">Locations</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="index.html#contact">Register Now</a></li>
+          <li><a href="#book">Book Costume Rental</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Chennai Beats Dance Academy · Bellevue &amp; Bothell / Kenmore, WA</div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(btn) {
+  var menu = document.getElementById('mobileMenu');
+  var open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+</script>
+</body>
+</html>

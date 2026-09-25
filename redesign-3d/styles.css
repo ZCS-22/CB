@@ -1,0 +1,345 @@
+/* ============================================================
+   Chennai Beats — Minimal Redesign Design System
+   Palette: warm cream bg, deep charcoal text, maroon primary,
+   gold secondary. Mobile-first.
+   ============================================================ */
+
+:root {
+  --cream: #FAF6F0;
+  --cream-deep: #F3ECE1;
+  --white: #FFFFFF;
+  --charcoal: #26201B;
+  --ink-soft: #5A5049;
+  --maroon: #8E2A35;
+  --maroon-dark: #71212A;
+  --gold: #C08A2D;
+  --gold-soft: #E8D6B4;
+  --line: #E7DDCE;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 6px 24px rgba(38, 32, 27, 0.07);
+  --shadow-hover: 0 10px 32px rgba(38, 32, 27, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--charcoal);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 { font-family: "Montserrat", sans-serif; font-weight: 700; line-height: 1.2; color: var(--charcoal); }
+h1 { font-size: 2.1rem; letter-spacing: -0.5px; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.15rem; }
+p  { color: var(--ink-soft); }
+
+.brand-name, .founder-name { font-family: "Playfair Display", serif; }
+.tagline { font-family: "Dancing Script", cursive; color: var(--maroon); font-size: 1.25rem; }
+
+.eyebrow {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section-head { max-width: 640px; margin-bottom: 36px; }
+.section-head p { margin-top: 10px; }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+section { padding: 64px 0; }
+.section-alt { background: var(--white); }
+.section-cream-deep { background: var(--cream-deep); }
+
+/* Subtle Indian-inspired corner accent (kolam dot grid) */
+.accent-corner { position: relative; overflow: hidden; }
+.accent-corner::before {
+  content: "";
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 110px; height: 110px;
+  background-image: radial-gradient(var(--gold) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+/* Thin gold divider used between key sections */
+.divider {
+  height: 3px; width: 64px; border-radius: 3px;
+  background: linear-gradient(90deg, var(--maroon), var(--gold));
+  margin: 14px 0 0;
+}
+.center .divider { margin-left: auto; margin-right: auto; }
+
+/* ---------- Buttons (CTA styles) ---------- */
+.btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  min-height: 48px;              /* tap-friendly */
+  border-radius: 999px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.btn-primary { background: var(--maroon); color: #fff; }
+.btn-primary:hover { background: var(--maroon-dark); }
+
+.btn-secondary { background: transparent; color: var(--maroon); border-color: var(--maroon); }
+.btn-secondary:hover { background: rgba(142, 42, 53, 0.08); }
+
+.btn-light { background: #fff; color: var(--maroon); }
+.btn-light:hover { background: var(--gold-soft); }
+
+.btn-sm { padding: 10px 20px; min-height: 42px; font-size: 0.92rem; }
+
+/* ---------- Header / Navigation ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 246, 240, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 68px; gap: 16px;
+}
+.logo { text-decoration: none; line-height: 1.1; }
+.logo .brand-name { font-size: 1.35rem; font-weight: 700; color: var(--charcoal); }
+.logo .tagline { font-size: 0.95rem; display: block; }
+
+.nav-links { display: none; list-style: none; align-items: center; gap: 26px; }
+.nav-links a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  color: var(--charcoal); text-decoration: none;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--maroon); border-bottom-color: var(--gold); }
+.nav-links a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+.nav-cta { display: none; }
+
+/* Mobile menu */
+.menu-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px;
+  background: none; border: 2px solid var(--line); border-radius: 12px;
+  cursor: pointer; color: var(--charcoal);
+}
+.menu-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.mobile-menu {
+  display: none;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu ul { list-style: none; padding: 8px 20px 20px; }
+.mobile-menu a {
+  font-family: "Raleway", sans-serif;
+  display: block; padding: 14px 6px;
+  font-weight: 600; font-size: 1.05rem;
+  color: var(--charcoal); text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.mobile-menu a:hover { color: var(--maroon); }
+.mobile-menu .btn { width: 100%; margin-top: 16px; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 72px 0; }
+.hero-grid { display: grid; gap: 36px; align-items: center; }
+.hero h1 { font-size: 2.3rem; margin: 14px 0 16px; }
+.hero .lead { font-size: 1.1rem; max-width: 520px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.hero-visual {
+  border-radius: var(--radius);
+  min-height: 300px;
+}
+
+/* ---------- Cards ---------- */
+.card-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.card h3 { margin: 14px 0 8px; }
+.card p { font-size: 0.95rem; }
+.card .card-link {
+  font-family: "Raleway", sans-serif;
+  display: inline-block; margin-top: 14px;
+  font-weight: 700; font-size: 0.92rem;
+  color: var(--maroon); text-decoration: none;
+}
+.card .card-link:hover { text-decoration: underline; }
+
+.card-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream-deep); color: var(--maroon);
+  font-size: 1.4rem;
+}
+
+/* Meta rows on class cards */
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+.meta span {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.78rem; font-weight: 700;
+  background: var(--cream-deep); color: var(--charcoal);
+  padding: 5px 12px; border-radius: 999px;
+}
+.meta span.gold { background: var(--gold-soft); }
+
+/* ---------- Checklist (Why Chennai Beats) ---------- */
+.checklist { list-style: none; display: grid; gap: 14px; }
+.checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 1rem; color: var(--charcoal); }
+.checklist .tick {
+  flex: none; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--gold-soft); color: var(--maroon);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; margin-top: 2px;
+}
+
+/* ---------- Image placeholder / no-image fallback ---------- */
+.img-fallback {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  background:
+    radial-gradient(var(--gold-soft) 1.5px, transparent 1.5px) 0 0 / 18px 18px,
+    linear-gradient(150deg, var(--cream-deep), #EFE4D2);
+  color: var(--ink-soft);
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius);
+  min-height: 220px;
+  text-align: center; padding: 20px;
+}
+.img-fallback .ph-icon { font-size: 2rem; color: var(--gold); }
+.img-fallback .ph-label { font-family: "Raleway", sans-serif; font-weight: 700; color: var(--charcoal); font-size: 0.95rem; }
+.img-fallback .ph-note { font-size: 0.8rem; }
+
+/* ---------- Costume highlight band ---------- */
+.costume-band {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+  border-radius: var(--radius);
+  color: #fff;
+  padding: 44px 28px;
+  position: relative; overflow: hidden;
+}
+.costume-band::after {
+  content: "";
+  position: absolute; right: -30px; bottom: -30px;
+  width: 180px; height: 180px;
+  background-image: radial-gradient(rgba(255,255,255,0.35) 1.6px, transparent 1.6px);
+  background-size: 15px 15px;
+  pointer-events: none;
+}
+.costume-band h2, .costume-band p { color: #fff; }
+.costume-band p { opacity: 0.92; max-width: 560px; }
+.costume-band .btn { margin-top: 22px; }
+
+/* ---------- Testimonials ---------- */
+.testimonial { display: flex; flex-direction: column; }
+.testimonial .stars { color: var(--gold); letter-spacing: 3px; font-size: 0.95rem; }
+.testimonial blockquote { font-size: 0.97rem; color: var(--charcoal); margin: 12px 0 16px; font-style: italic; }
+.testimonial .who { font-family: "Raleway", sans-serif; font-weight: 700; font-size: 0.9rem; }
+.testimonial .who small { display: block; font-weight: 500; color: var(--ink-soft); }
+
+/* ---------- Process steps ---------- */
+.steps { display: grid; gap: 18px; counter-reset: step; }
+.step { display: flex; gap: 16px; align-items: flex-start; }
+.step-num {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--maroon); color: #fff;
+  font-family: "Montserrat", sans-serif; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.step h3 { margin-bottom: 4px; }
+
+/* ---------- Final CTA ---------- */
+.final-cta { text-align: center; }
+.final-cta .hero-ctas { justify-content: center; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--charcoal);
+  color: #D8D0C8;
+  padding: 48px 0 28px;
+  font-family: "Raleway", sans-serif;
+}
+.footer-grid { display: grid; gap: 32px; }
+.site-footer .brand-name { color: #fff; font-size: 1.3rem; }
+.site-footer h4 { color: #fff; font-size: 0.95rem; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.site-footer ul { list-style: none; display: grid; gap: 8px; }
+.site-footer a { color: #D8D0C8; text-decoration: none; font-size: 0.95rem; }
+.site-footer a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 36px; padding-top: 20px; font-size: 0.85rem; text-align: center; }
+
+/* ---------- Location cards ---------- */
+.location-card .pin { color: var(--maroon); font-size: 1.3rem; }
+
+/* ============================================================
+   Responsive — tablet 768px+
+   ============================================================ */
+@media (min-width: 768px) {
+  h1 { font-size: 2.7rem; }
+  h2 { font-size: 2rem; }
+  section { padding: 84px 0; }
+  .hero { padding: 96px 0; }
+  .hero h1 { font-size: 3rem; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid.cols-3-at-lg { grid-template-columns: repeat(2, 1fr); }
+  .costume-band { padding: 56px 48px; }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+}
+
+/* ============================================================
+   Responsive — desktop 1024px+
+   ============================================================ */
+@media (min-width: 1024px) {
+  .menu-toggle, .mobile-menu { display: none !important; }
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
+  .card-grid.cols-3-at-lg { grid-template-columns: repeat(3, 1fr); }
+  .card-grid.cols-4-at-lg { grid-template-columns: repeat(4, 1fr); }
+  .steps { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card, .btn { transition: none; }
+}
