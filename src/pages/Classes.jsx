@@ -402,9 +402,14 @@ function ClassScheduleSection() {
               Share your details and we&apos;ll get back to you with available
               slots, timings, and the right class for your age group.
             </p>
-            <Link to="/Contact" className="classes-contact-cta-btn">
+            <a
+              href="https://form.jotform.com/232330427478153"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="classes-contact-cta-btn"
+            >
               Fill in Your Details →
-            </Link>
+            </a>
           </div>
         </div>
       </div>
