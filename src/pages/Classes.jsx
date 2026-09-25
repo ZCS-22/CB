@@ -371,69 +371,6 @@ function OffLineClasses() {
 --------------------------------------------------- */
 function ClassScheduleSection() {
   const [sectionRef, sectionVisible] = useInViewOnce(0.2);
-  const safeEventHandler = useSafeEventHandler();
-
-  const jotformLink = "https://www.jotform.com/form/232332387725054";
-
-  const schedules = [
-    {
-      location: "Bothell",
-      venueLine1: "Kenmore Movement Studio",
-      venueLine2: "8030 NE Bothell Way a, Kenmore, WA 98028",
-      slots: [
-        {
-          time: "Saturday 3:30pm - 4:30pm",
-          className: "Junior Groovers",
-          age: "Ages 3-5",
-        },
-        {
-          time: "Saturday 4:30pm - 5:30pm",
-          className: "Adults",
-          age: "Ages 6-10",
-        },
-      ],
-    },
-    {
-      location: "Bellevue",
-      venueLine1: "Eyas Global Montessori School",
-      venueLine2: "14219 Lake Hills Blvd, Bellevue, WA 98007.",
-      slots: [
-        {
-          time: "Wednesday 6pm - 7pm",
-          className: "Tiny Torts",
-          age: "Ages 3-5",
-        },
-        {
-          time: "Wednesday 6pm - 7pm",
-          className: "Junior Groovers",
-          age: "Ages 6-11",
-        },
-        {
-          time: "Wednesday 7pm - 8pm",
-          className: "Youth Fusion",
-          age: "Ages 12-15",
-        },
-        {
-          time: "Wednesday 7pm - 8pm",
-          className: "Adults",
-          age: "",
-        },
-      ],
-    },
-  ];
-
-  const openJotform = useCallback(() => {
-    if (!jotformLink) {
-      throw new Error("Jotform link is missing.");
-    }
-
-    window.open(jotformLink, "_blank", "noopener,noreferrer");
-  }, [jotformLink]);
-
-  const handleScheduleCardClick = safeEventHandler(
-    openJotform,
-    "Unable to open the registration form right now."
-  );
 
   return (
     <section ref={sectionRef} className="classes-schedule-section">
@@ -449,39 +386,26 @@ function ClassScheduleSection() {
           </p>
         </div>
 
-        <div className="classes-schedule-grid">
-          {schedules.map((item, index) => (
-            <div
-              key={item.location}
-              onClick={handleScheduleCardClick}
-              className={`classes-schedule-card schedule-clickable ${
-                sectionVisible ? "schedule-show" : ""
-              }`}
-              style={{ transitionDelay: `${index * 0.18}s` }}
-            >
-              <h3 className="schedule-location">{item.location}</h3>
-
-              <div className="schedule-address-block">
-                <p className="schedule-venue-line1">{item.venueLine1}</p>
-                <p className="schedule-venue-line2">{item.venueLine2}</p>
-              </div>
-
-              <div className="schedule-slot-block">
-                <h4 className="schedule-slot-heading">Slot</h4>
-
-                {item.slots.map((slot, slotIndex) => (
-                  <div key={slotIndex} className="schedule-slot-item">
-                    <p className="schedule-slot-time">{slot.time}</p>
-                    <p className="schedule-slot-class">for {slot.className}</p>
-
-                    {slot.age && (
-                      <p className="schedule-slot-age">({slot.age})</p>
-                    )}
-                  </div>
-                ))}
-              </div>
+        <div
+          className={`classes-contact-cta ${
+            sectionVisible ? "schedule-show" : ""
+          }`}
+        >
+          <div className="classes-contact-cta-inner">
+            <div className="classes-contact-cta-icon">
+              <i className="bi bi-chat-heart-fill"></i>
             </div>
-          ))}
+            <h3 className="classes-contact-cta-title">
+              Interested in joining a class?
+            </h3>
+            <p className="classes-contact-cta-text">
+              Share your details and we&apos;ll get back to you with available
+              slots, timings, and the right class for your age group.
+            </p>
+            <Link to="/Contact" className="classes-contact-cta-btn">
+              Fill in Your Details →
+            </Link>
+          </div>
         </div>
       </div>
     </section>
