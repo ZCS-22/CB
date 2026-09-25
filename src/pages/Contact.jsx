@@ -62,19 +62,6 @@ function ContactInfo() {
 
       <div className="contact-info-item">
         <div className="contact-info-icon-circle">
-          <i className="bi bi-geo-alt-fill" aria-hidden="true"></i>
-        </div>
-
-        <div className="contact-info-copy">
-          <h3>Address</h3>
-          <p className="contact-info-link">
-            Renton | Redmond | Bellevue | Bothell
-          </p>
-        </div>
-      </div>
-
-      <div className="contact-info-item">
-        <div className="contact-info-icon-circle">
           <i className="bi bi-telephone-fill" aria-hidden="true"></i>
         </div>
 
@@ -116,7 +103,7 @@ function GetInTouch() {
     name: "",
     email: "",
     phoneNumber: "",
-    location: "",
+    location: "",   // empty = forces user to pick a location
     comment: "",
   });
 
@@ -179,7 +166,7 @@ function GetInTouch() {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch(`${API_BASE_URL}/send-mail`, {
+        const response = await fetch(`${API_BASE_URL}/api/send-mail`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -206,7 +193,7 @@ function GetInTouch() {
           name: "",
           email: "",
           phoneNumber: "",
-          location: "",
+          location: "",   // reset to placeholder
           comment: "",
         });
       } catch (error) {
@@ -278,10 +265,9 @@ function GetInTouch() {
 
           <select
             name="location"
-            placeholder="Location"
             value={formData.location}
             onChange={handleChange}>
-            
+            <option value="" disabled>Select your location</option>
             <option value="Renton">Renton</option>
             <option value="Redmond">Redmond</option>
             <option value="Bellevue">Bellevue</option>
@@ -309,85 +295,6 @@ function GetInTouch() {
   );
 }
 
-function LocationSection() {
-  const [locationRef, locationVisible] = useInViewOnce(0.15);
-
-  const locations = [
-    {
-      name: "Redmond",
-      building: "Dance Studio Venue",
-      address: "23031 NE 61st St, Redmond, WA 98053, USA",
-      map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10748.816464187265!2d-122.03156700000001!3d47.66103100000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549073a8830c8787%3A0xd9a507fbfe0ef332!2s23031%20NE%2061st%20St%2C%20Redmond%2C%20WA%2098053%2C%20USA!5e0!3m2!1sen!2sin!4v1773573812064!5m2!1sen!2sin",
-      link: "https://www.google.com/maps/search/?api=1&query=23031+NE+61st+St,+Redmond,+WA+98053",
-    },
-    {
-      name: "Renton",
-      building: "Rockin' Horse Dance Barn",
-      address: "11820 150th Ave SE, Renton, WA 98059.",
-      map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10782.572134477712!2d-122.1401!3d47.496867!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490662a50ee8459%3A0x456a2aab17f23a73!2sRockin&#39;%20Horse%20Dance%20Barn!5e0!3m2!1sen!2sin!4v1773573881074!5m2!1sen!2sin",
-      link: "https://www.google.com/maps/search/?api=1&query=11820+150th+Ave+SE,+Renton,+WA+98059",
-    },
-    {
-      name: "Bellevue",
-      building: "Eyas Montessori School",
-      address: "14219 Lake Hills Blvd, Bellevue, WA 98007.",
-      map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10761.912096635908!2d-122.15011000000001!3d47.597394!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906c3c7c28b7d7%3A0x650f7ac0fe83a5e1!2sEyas%20Global%20Montessori%20School!5e0!3m2!1sen!2sin!4v1773573948115!5m2!1sen!2sin",
-      link: "https://www.google.com/maps/search/?api=1&query=14219+Lake+Hills+Blvd,+Bellevue,+WA+98007",
-    },
-    {
-      name: "Bothell",
-      building: "Bothell",
-      address: "2606 194th St SE, Bothell, WA 98012.",
-      map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10715.745187496383!2d-122.19781300000001!3d47.821452!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54900f5ab7ee5177%3A0xda99049c21346366!2s2606%20194th%20St%20SE%2C%20Bothell%2C%20WA%2098012%2C%20USA!5e0!3m2!1sen!2sin!4v1773574079572!5m2!1sen!2sin",
-      link: "https://www.google.com/maps/search/?api=1&query=2606+194th+St+SE,+Bothell,+WA+98012",
-    },
-  ];
-
-  return (
-    <div
-      ref={locationRef}
-      className={`contact-block ${
-        locationVisible ? "contact-show-up" : "contact-hidden-up"
-      }`}
-    >
-      <h2 className="contact-location-title">Location</h2>
-      <p className="contact-location-subtitle">Step into the spotlight !</p>
-
-      <div className="contact-location-grid">
-        {locations.map((loc) => (
-          <div className="contact-location-card" key={loc.name}>
-            <div className="contact-location-map-wrap">
-              <iframe
-                src={loc.map}
-                title={loc.name}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                className="contact-location-map"
-              />
-
-              <a
-                href={loc.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-location-map-link"
-                aria-label={`Open ${loc.name} location in Google Maps`}
-                title={`Open ${loc.name} in Google Maps`}
-              ></a>
-            </div>
-
-            <div className="contact-location-text">
-              <h3 className="contact-location-name">{loc.name}</h3>
-              <p className="contact-location-building">{loc.building}</p>
-              <p className="contact-location-address">{loc.address}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Contact() {
   return (
     <section className="contact-section">
@@ -395,7 +302,6 @@ export default function Contact() {
 
       <div className="contact-right">
         <GetInTouch />
-        <LocationSection />
       </div>
     </section>
   );
