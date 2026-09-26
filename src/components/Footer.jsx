@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CompanyLogo from "../assets/CB_Logo/YT circle.png";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,7 +13,7 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div className="footer-column brand">
             <div className="footer-logo-row">
-              <div className="footer-logo-circle">CB</div>
+              <img src={CompanyLogo} alt="Chennai Beats Logo" className="footer-logo-img" />
               <div>
                 <div className="footer-brand-name">Chennai Beats</div>
                 <div className="footer-brand-sub">Dance Academy · Seattle</div>
