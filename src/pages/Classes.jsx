@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
 
 import bg1 from "../assets/Classes/bg1.png";
 import bg2 from "../assets/Classes/bg2.png";
@@ -36,22 +35,6 @@ function useInViewOnce(threshold = 0.45) {
   return [ref, isVisible];
 }
 
-function useSafeEventHandler() {
-  return useCallback((handler, errorMessage = "Something went wrong.") => {
-    return async (event, ...args) => {
-      try {
-        if (typeof handler !== "function") {
-          throw new Error("Event handler is undefined.");
-        }
-
-        await handler(event, ...args);
-      } catch (error) {
-        console.error("Event handler error:", error);
-        toast.error(errorMessage);
-      }
-    };
-  }, []);
-}
 
 const sortMedia = (modules) =>
   Object.entries(modules)

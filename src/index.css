@@ -783,7 +783,7 @@ body {@apply text-black;}
 .classes-sections {@apply bg-white px-[8%];}
 .classes-section {@apply relative isolate items-center justify-between overflow-hidden rounded-4xl flex gap-15 py-12.5 px-10 mb-0;}
 .classes-section.reverse {@apply flex-row-reverse;}
-.classes-bg-section::before {@apply absolute inset-0 bg-(image:--classes-bg) bg-no-repeat bg-size-[500px_500px] opacity-25 z-0 pointer-events-none}
+.classes-bg-section::before {@apply absolute inset-0 bg-(image:--class-bg) bg-no-repeat bg-size-[500px_500px] opacity-25 z-0 pointer-events-none}
 .classes-bg-section > * {@apply relative z-10;}
 .classes-bollywood-bg::before,
 .classes-kuthu-bg::before {@apply bg-cover bg-right}
@@ -900,13 +900,19 @@ body {@apply text-black;}
 .classes-online-list {@apply font-opensans mt-5 list-disc pl-6;}
 .classes-online-list li {@apply font-opensans mb-2 text-lg leading-8 text-black;}
 .classes-online-registration {@apply font-raleway mt-8 self-start;}
-.classes-text-hidden {@apply opacity-0;}
-.classes-online-hidden-right {@apply opacity-0 translate-x-17.5;}
+.classes-text-hidden { opacity: 0; }
+.classes-online-hidden-right { opacity: 0; transform: translateX(70px); }
 .classes-swipe-fade-right-left,
-.classes-swipe-fade-left-right {@apply opacity-0 will-change-[transform,opacity] animate-[1s_ease_forwards];}
-.classes-swipe-fade-right-left {animation-name: classesSwipeFadeRightLeft;}
-.classes-swipe-fade-left-right {animation-name: classesSwipeFadeLeftRight;}
-.classes-swipe-up {@apply opacity-0 will-change-[transform,opacity] animate-[classesSwipeUp_1s_ease_forwards]}
+.classes-swipe-fade-left-right {
+  will-change: transform, opacity;
+  animation: 1s ease both;
+}
+.classes-swipe-fade-right-left { animation-name: classesSwipeFadeRightLeft; }
+.classes-swipe-fade-left-right { animation-name: classesSwipeFadeLeftRight; }
+.classes-swipe-up {
+  will-change: transform, opacity;
+  animation: classesSwipeUp 1s ease both;
+}
 .classes-heading-delay { animation-delay: 0.15s; }
 .classes-text-delay { animation-delay: 0.45s; }
 .classes-text-delay-2 { animation-delay: 0.65s; }

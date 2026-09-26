@@ -10,7 +10,7 @@ export default function Header() {
   const cls = ({ isActive }) =>
     isActive ? "header-link active" : "header-link";
 
-  const useSafeEventHandler = useCallback(
+  const makeSafeHandler = useCallback(
     (handler, errorMessage = "Something went wrong.") => {
       return async (event, ...args) => {
         try {
@@ -31,11 +31,11 @@ export default function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
     };
-    const safeScroll = useSafeEventHandler(handleScroll, "Unable to update header on scroll.");
+    const safeScroll = makeSafeHandler(handleScroll, "Unable to update header on scroll.");
     safeScroll();
     window.addEventListener("scroll", safeScroll);
     return () => window.removeEventListener("scroll", safeScroll);
-  }, [useSafeEventHandler]);
+  }, [makeSafeHandler]);
 
   /* Close drawer when route changes */
   const closeMenu = () => setMenuOpen(false);

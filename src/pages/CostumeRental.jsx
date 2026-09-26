@@ -292,21 +292,19 @@ const CostumeCard = memo(function CostumeCard({ costume, imageLoaders }) {
     };
   }, [cardVisible, imageLoaders, isLoaded, costume.title]);
 
-  useEffect(() => {
-    if (current >= images.length && images.length > 0) {
-      setCurrent(0);
-    }
-  }, [images, current]);
+  // Clamp current index to valid range without a side-effect setState
+  const safeCurrent =
+    images.length > 0 && current >= images.length ? 0 : current;
 
   useEffect(() => {
     if (images.length <= 1) return;
 
-    const nextIndex = (current + 1) % images.length;
-    const prevIndex = (current - 1 + images.length) % images.length;
+    const nextIndex = (safeCurrent + 1) % images.length;
+    const prevIndex = (safeCurrent - 1 + images.length) % images.length;
 
     preloadImage(images[nextIndex]);
     preloadImage(images[prevIndex]);
-  }, [current, images]);
+  }, [safeCurrent, images]);
 
   const handlePrev = useCallback(
     (event) => {
@@ -366,7 +364,7 @@ const CostumeCard = memo(function CostumeCard({ costume, imageLoaders }) {
               aria-label={`Open full image for ${costume.title}`}
             >
               <img
-                src={images[current]}
+                src={images[safeCurrent]}
                 alt={costume.title}
                 loading="lazy"
                 decoding="async"
@@ -400,7 +398,7 @@ const CostumeCard = memo(function CostumeCard({ costume, imageLoaders }) {
               </button>
 
               <div className="costume-image-count">
-                {current + 1} / {images.length}
+                {safeCurrent + 1} / {images.length}
               </div>
             </>
           )}
@@ -435,9 +433,9 @@ const CostumeCard = memo(function CostumeCard({ costume, imageLoaders }) {
         </div>
       </article>
 
-      {lightboxOpen && images[current] && (
+      {lightboxOpen && images[safeCurrent] && (
         <ImageLightbox
-          src={images[current]}
+          src={images[safeCurrent]}
           alt={costume.title}
           onClose={handleCloseLightbox}
         />

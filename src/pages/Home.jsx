@@ -570,7 +570,7 @@ function ReviewHighlight() {
       setIndex((prev) => (prev + 1) % reviews.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [reviews.length]);
 
   // mouse glow
   useEffect(() => {
