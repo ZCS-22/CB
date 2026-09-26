@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 import logo from "../assets/CB_Logo/YT circle.png";
 import React, { useCallback, useMemo } from "react";
 import toast from "react-hot-toast";
