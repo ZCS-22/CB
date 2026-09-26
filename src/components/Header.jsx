@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState, useCallback } from "react";
 import toast from "react-hot-toast";
+import CompanyLogo from "../assets/CB_Logo/YT circle.png";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +46,11 @@ export default function Header() {
         <div className="header-inner">
           {/* Brand */}
           <NavLink to="/" className="header-brand" onClick={closeMenu}>
-            <div className="header-logo-circle">CB</div>
+            <img
+              src={CompanyLogo}
+              alt="Chennai Beats Logo"
+              className="header-logo-img"
+            />
             <div className="header-logo-text-block">
               <span className="header-logo-name">Chennai Beats</span>
               <span className="header-logo-sub">Dance Academy</span>

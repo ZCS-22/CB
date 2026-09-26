@@ -87,6 +87,14 @@ body {@apply text-black;}
   letter-spacing: 0.5px;
 }
 .header.scrolled .header-logo-circle { width: 36px; height: 36px; font-size: 12px; }
+.header-logo-img {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: width 0.3s, height 0.3s;
+}
+.header.scrolled .header-logo-img { width: 36px; height: 36px; }
 .header-logo-text-block {@apply flex flex-col leading-none;}
 .header-logo-name {
   @apply font-raleway font-bold text-white;
@@ -393,10 +401,24 @@ body {@apply text-black;}
   @apply w-full py-20 px-6 overflow-hidden relative;
   background: var(--cb-dark);
 }
+.home-founder-bg-logo {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 480px;
+  height: 480px;
+  object-fit: contain;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
 .home-founder-wrapper {
   @apply mx-auto grid items-center gap-16 relative;
   max-width: 1200px;
   grid-template-columns: 0.85fr 1.15fr;
+  z-index: 1;
 }
 /* Photo */
 .home-founder-photo-block {

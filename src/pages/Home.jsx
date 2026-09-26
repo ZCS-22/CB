@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Star } from "lucide-react";
 
-import CompanyLogo from "../assets/CB_Logo/YT circle.png";
 /* https://form.jotform.com/232330427478153 class reg link*/
 /* https://form.jotform.com/261044330658453 get in touch */
 /* ---------------------------------------------------
@@ -140,12 +139,6 @@ function FounderSection() {
 
   return (
     <section ref={sectionRef} className="home-founder-section">
-      <img
-        src={CompanyLogo}
-        alt="Company Logo"
-        className="home-founder-bg-logo"
-      />
-
       <div className="home-founder-wrapper">
         <div
           className={`home-founder-content ${
